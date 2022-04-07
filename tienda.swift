@@ -1,7 +1,7 @@
 struct tienda{
-    private let ruc = 10772423778
-    private let nombre = "Anthony Salas"
-    private let ganancia = 0.2
+    let ruc = 10772423778
+    let nombre = "Anthony Salas"
+    let ganancia = 0.2
 }
 class producto{
     var codigo:Int=0
@@ -20,16 +20,13 @@ class cliente:producto{
     }
     func productosComprandos(){
         for i in self.product{
-            print("┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼")
+            print("°°°°°°°°°°°°°°°°°°°°°°°°°")
                 let nProducto = i.codigo
                 let nNombre = i.nombre
                 let nPrecio = i.precio
-                let nGanancia = i.calcularGanancia()
                 print("Codigo: \(nProducto)")
                 print("Nombre: \(nNombre)")
-                print("Precio: \(nPrecio)")
-                print("Precio: \(nPrecio)")
-                print("Ganancia: \(nGanancia)")
+                print("Precio: S/. \(nPrecio)")
         }  
     }
     func totalComprado(){
@@ -38,7 +35,8 @@ class cliente:producto{
             total += i.precio
         }
         total = total * (1 + self.store.ganancia)
-        print("Total Comprado: \(total)")
+        print("Total Comprado: S/. \(total.rounded(.toNearestOrAwayFromZero))")
+        print("°°°°°°°°°°°°°°°°°°°°°°°°°")
     }
 }
 // PRODUCTOS
@@ -76,35 +74,42 @@ productos2.append(producto1a)
 productos2.append(producto2a)
 productos2.append(producto3a)
 
-var cliente1 = cliente(dni: 123456789, nombres: "Jose Vera", product: productos)
+var cliente1 = cliente(dni: 123456789, nombres: "Jose Vera", product: productos1)
 var cliente2 = cliente(dni: 121234439, nombres: "Alberto Rivera", product: productos2)
 
 var clientes = [cliente]()
 clientes.append(cliente1)
 clientes.append(cliente2)
 for cli in clientes {
+    print("COMERCIAL DEVOPS")
+    print("RUC : \(cli.store.ruc)")
+    print("Razon Social : \(cli.store.nombre)")
     print("┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼")
     print("DNI: \(cli.dni)")
     print("Nombres: \(cli.nombres)")
     print("Productos Comprandos:")
     cli.productosComprandos()
-    print("Total Comprado:")
     cli.totalComprado()
 }
+print("LISTA DE CLIENTES")
 for cli in clientes {
     print("°°°°°°°°°°°°°°°°°°°°°°°°°")
     print("DNI: \(cli.dni)")
     print("Nombres: \(cli.nombres)")
     print("°°°°°°°°°°°°°°°°°°°°°°°°°")
 }
-
 var productos = [producto]()
-productos.append(productos1)
-productos.append(productos2)
+productos.append(producto1)
+productos.append(producto2)
+productos.append(producto3)
+productos.append(producto1a)
+productos.append(producto2a)
+productos.append(producto3a)
+print("LISTA DE PRODUCTOS")
 for pro in productos {
     print("°°°°°°°°°°°°°°°°°°°°°°°°°")
     print("Codigo: \(pro.codigo)")
     print("Nombre: \(pro.nombre)")
-    print("Precio: \(pro.precio)")
+    print("precio: S/. \(pro.precio)")
     print("°°°°°°°°°°°°°°°°°°°°°°°°°")
 }
